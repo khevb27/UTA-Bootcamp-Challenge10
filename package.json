@@ -1,0 +1,28 @@
+{
+  "name": "uta-bootcamp-challenge10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khevb27/UTA-Bootcamp-Challenge10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khevb27/UTA-Bootcamp-Challenge10/issues"
+  },
+  "homepage": "https://github.com/khevb27/UTA-Bootcamp-Challenge10#readme",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
