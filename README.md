@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This project is a command-line application that uses Node.js to gather information about team members and generates an HTML webpage displaying the data provided by the user. In addition to developing the application, the project required the use of Jest and Inquirer to perform unit tests on each aspect of the code, ensuring that it passed all the tests.
 
 ----------------------------------------------------------------------
 
@@ -51,7 +51,11 @@ THEN I exit the application, and the HTML is generated
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+1. Clone/download git repository.
+2. Run command "npm run test" (jest for tests)
+3. Run command "node index.js" to generate team profile.
+4. Open team.html in live server to view updated profile cards.
+
 
 #
 
@@ -66,7 +70,9 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Preview
 
-<img src= "assets/images/title.jpg"/>
+<img src= "assets/images/C10 Screenshot 1.png"/>
+<img src= "assets/images/C10 Screenshot 2.png"/>
+<img src= "assets/images/C10 Screenshot 3.png"/>
 
 #
 
