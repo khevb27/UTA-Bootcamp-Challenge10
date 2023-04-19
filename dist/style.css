@@ -1,15 +1,15 @@
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .card {
-    min-width: 17rem;
-    background-color: #f7f7f7;
+    min-width: 18rem;
+    background-color: white;
+    box-shadow: 10px 10px 15px rgb(96, 96, 96);
     border: none;
-    box-shadow: 5px 5px 10px grey;
 }
 
 .row {
-    gap: 25px;
-}
-
-.container {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    gap: 30px;
 }

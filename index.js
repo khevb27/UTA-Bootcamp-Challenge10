@@ -2,145 +2,80 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const { generateDiv, generateHTML } = require("./src/template");
+const { generateDiv, generateHTML } = require("./src/template.js");
 
 const teamLead = new Manager();
 
 const buildTeam = (newEmployee) => {
+  const employeeQuestions = [
+    {
+      type: "input",
+      name: "name",
+      message: `Enter the ${newEmployee.getRole().toLowerCase()}'s name:`,
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "ID:",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Email:",
+    },
+  ];
+
   switch (newEmployee.getRole()) {
     case "Manager":
-      inquirer
-        .prompt([
-          {
-              type: "input",
-              name: "name",
-              message: "Please enter the team manager's name:",
-          },
-
-          {
-            type: "input",
-            name: "id",
-            message: "ID:",
-          },
-
-          {
-            type: "input",
-            name: "email",
-            message: "Email:",
-          },
-
-          {
-            type: "input",
-            name: "office",
-            message: "Office number:",
-          },
-
-          {
-            type: "list",
-            name: "next",
-            message: "Would you like to add another emloyee?",
-            choices: ["Engineer", "Intern", "No more employees."],
-          },
-        ])
-        .then((res) => {
-          newEmployee.name = res.name;
-          newEmployee.id = res.id;
-          newEmployee.email = res.email;
-          newEmployee.officeNumber = res.office;
-
-          generateDiv(newEmployee);
-          checkNext(res.next);
-        });
+      employeeQuestions.push({
+        type: "input",
+        name: "office",
+        message: "Office number:",
+      });
       break;
     case "Engineer":
-      inquirer
-        .prompt([
-          {
-            type: "input",
-            name: "name",
-            message: "Please enter this engineer's name:",
-          },
-
-          {
-            type: "input",
-            name: "id",
-            message: "ID:",
-          },
-
-          {
-            type: "input",
-            name: "email",
-            message: "Email:",
-          },
-
-          {
-            type: "input",
-            name: "github",
-            message: "GitHub username:",
-          },
-
-          {
-            type: "list",
-            name: "next",
-            message: "Would you like to add another emloyee?",
-            choices: ["Engineer", "Intern", "No more employees."],
-          },
-        ])
-        .then((res) => {
-          newEmployee.name = res.name;
-          newEmployee.id = res.id;
-          newEmployee.email = res.email;
-          newEmployee.github = res.github;
-
-          generateDiv(newEmployee);
-          checkNext(res.next);
-        });
+      employeeQuestions.push({
+        type: "input",
+        name: "github",
+        message: "GitHub username:",
+      });
       break;
     case "Intern":
-      inquirer
-        .prompt([
-          {
-            type: "input",
-            name: "name",
-            message: "Please enter this intern's name:",
-          },
-
-          {
-            type: "input",
-            name: "id",
-            message: "ID:",
-          },
-
-          {
-            type: "input",
-            name: "email",
-            message: "Email:",
-          },
-
-          {
-            type: "input",
-            name: "school",
-            message: "School:",
-          },
-
-          {
-            type: "list",
-            name: "next",
-            message: "Would you like to add another emloyee?",
-            choices: ["Engineer", "Intern", "No more employees."],
-          },
-        ])
-        .then((res) => {
-          newEmployee.name = res.name;
-          newEmployee.id = res.id;
-          newEmployee.email = res.email;
-          newEmployee.school = res.school;
-
-          generateDiv(newEmployee);
-          checkNext(res.next);
-        });
+      employeeQuestions.push({
+        type: "input",
+        name: "school",
+        message: "School:",
+      });
       break;
   }
+
+  employeeQuestions.push({
+    type: "list",
+    name: "next",
+    message: "Would you like to add another employee?",
+    choices: ["Engineer", "Intern", "No more employees."],
+  });
+
+  inquirer.prompt(employeeQuestions).then((res) => {
+    newEmployee.name = res.name;
+    newEmployee.id = res.id;
+    newEmployee.email = res.email;
+
+    switch (newEmployee.getRole()) {
+      case "Manager":
+        newEmployee.officeNumber = res.office;
+        break;
+      case "Engineer":
+        newEmployee.github = res.github;
+        break;
+      case "Intern":
+        newEmployee.school = res.school;
+        break;
+    }
+
+    generateDiv(newEmployee);
+    checkNext(res.next);
+  });
 };
 
 const checkNext = (str) => {

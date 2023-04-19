@@ -1,33 +1,42 @@
-const Employee = require('../lib/Employee');
-
-const employee = new Employee("Jane", 5117, "jane@email.com");
+const Employee = require("../lib/Employee");
 
 describe("Employee class", () => {
-    describe("Initialization", () => {
-        it("should take name, id, and email values and create a new object", () => {
-            
-            expect(employee.name).toEqual("Jane");
-            expect(employee.id).toEqual(5117);
-            expect(employee.email).toEqual("jane@email.com");
-        });
+  describe("Initialization", () => {
+    it("should create a new object with the name, id, and email properties", () => {
+      const employee = new Employee("Dude", 4321, "dude@email.com");
+      expect(employee).toEqual({
+        name: "Dude",
+        id: 4321,
+        email: "dude@email.com",
+      });
     });
-    
-    describe("get methods", () => {
-        it("should return the corresponding values of the employee their called on.", () => {
-            
-            expect(employee.getName()).toEqual("Jane");
-            expect(employee.getId()).toEqual(5117);
-            expect(employee.getEmail()).toEqual("jane@email.com");
-        });
-    });
+  });
 
-    describe("getRole method", () => {
-        it("should return 'Employee' on variables of the Employee class.", () => {
-
-            const notEmployee = "Employee"
-            
-            expect(employee.getRole()).toEqual("Employee");
-            expect(() => notEmployee.getRole()).toThrow(Error);
-        });
+  describe("getName method", () => {
+    it("should return the name property of the employee", () => {
+      const employee = new Employee("Dude", 4321, "dude@email.com");
+      expect(employee.getName()).toEqual("Dude");
     });
+  });
+
+  describe("getId method", () => {
+    it("should return the id property of the employee", () => {
+      const employee = new Employee("Dude", 4321, "dude@email.com");
+      expect(employee.getId()).toEqual(4321);
+    });
+  });
+
+  describe("getEmail method", () => {
+    it("should return the email property of the employee", () => {
+      const employee = new Employee("Dude", 4321, "dude@email.com");
+      expect(employee.getEmail()).toEqual("dude@email.com");
+    });
+  });
+
+  describe("getRole method", () => {
+    it("should return 'Employee' as the role of the employee", () => {
+      const employee = new Employee("Dude", 4321, "dude@email.com");
+      expect(employee.getRole()).toEqual("Employee");
+    });
+  });
 });

@@ -78,7 +78,7 @@ THEN I exit the application, and the HTML is generated
 
 ## Links
 
-- Video Submission Link: https://drive.google.com/file/d/1E1ICKWrB_o4n25Rx-CHAR4a5Tv8E8PqR/view?usp=sharing 
+- Video Submission Link: https://drive.google.com/file/d/1xWcSRP2WbOPKwW1HP8NtRws6xd4radYF/view?usp=sharing 
 - GitHub Repository Link: https://github.com/khevb27/UTA-Bootcamp-Challenge10 
 
 ----------------------------------------------------------------------
